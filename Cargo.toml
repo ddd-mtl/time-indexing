@@ -9,9 +9,9 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 serde = { version = "1.0", default-features = false }
-hdk = { version = "=0.1.1", features = ["encoding"] }
+hdk = { version = "=0.2.1", features = ["encoding"] }
 
-zome_utils = { git = "https://github.com/ddd-mtl/zome-utils", branch = "hdk-1.1" }
+zome_utils = { git = "https://github.com/ddd-mtl/zome-utils", branch = "hdk-2.1" }
 
 #base64 = {version = "0.13"}
 chrono = { version = "0.4.22", default-features = false, features = ["clock", "std", "oldtime", "serde"] }
