@@ -3,8 +3,8 @@ use hdk::prelude::*;
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize, SerializedBytes)]
 #[serde(rename_all = "camelCase")]
 pub struct TimedItemTag {
+  pub ts_us: Timestamp,
   pub item_type: String,
-  pub devtest_timestamp: Timestamp,
   pub custom_data: Vec<u8>,
 }
 

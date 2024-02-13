@@ -27,7 +27,7 @@ pub fn get_latest_time_indexed_links(
   debug!("        link_tag: {:?}", link_tag);
 
   /// Determine latest hour and the previous
-  let mut rounded_sweep_interval = sweep_interval.into_hour_buckets();
+  let rounded_sweep_interval = sweep_interval.into_hour_buckets();
   let latest_hour_us = rounded_sweep_interval.get_end_bucket_start_time();
   let latest_hour_tp = get_time_path(root_anchor_tp.clone(), latest_hour_us)?;
   let prev_hour_us = Timestamp::from_micros(latest_hour_us.0 - 3600 * 1000 * 1000);
@@ -102,7 +102,7 @@ pub fn get_latest_time_indexed_links(
       let children = tp_children(&current_sweep_tp)?;
 
       /// DEBUG INFO
-      let raw_children_dbg_info = children
+      let _raw_children_dbg_info = children
         .iter()
         .map(|l| format!("{{ tag: \"{}\" timestamp: {:?} }}, ", compTag2str(&l.tag).unwrap_or("<failed>".to_string()), l.timestamp))
         .collect::<String>();

@@ -13,7 +13,7 @@ pub fn index_item(
   tag_data: &[u8]) -> ExternResult<(TypedPath, ActionHash)> {
   let tag = TimedItemTag {
     item_type: item_type.to_string(),
-    devtest_timestamp: index_time_us,
+    ts_us: index_time_us,
     custom_data: tag_data.to_vec(),
   };
   /// Create TimeIndexPath
