@@ -1,9 +1,7 @@
 //use std::array::TryFromSliceError;
 use chrono::{DateTime, Datelike, NaiveDateTime, Timelike, Utc, NaiveDate};
-use hdk::{
-  hash_path::path::{Component, TypedPath},
-  prelude::*,
-};
+use hdk::prelude::*;
+use hdi::hash_path::path::{Component, TypedPath};
 use zome_utils::*;
 
 
