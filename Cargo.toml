@@ -9,7 +9,7 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 serde = { version = "=1.0.197", default-features = false }
-hdk = { version = "=0.3.0-beta-dev.34", features = ["encoding"] }
+hdk = { version = "=0.3.0-beta-dev.41", features = ["encoding"] }
 
 zome_utils = { git = "https://github.com/ddd-mtl/zome-utils", branch = "hdk-3.0" }
 
