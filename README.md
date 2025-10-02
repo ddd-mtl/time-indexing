@@ -1,12 +1,11 @@
 # time-indexing
 
-Rust library providing a time-indexing solution for Holochain Zomes
-Enables to index any `AnyLinkableHash` in a Link tree structure called a time-index.
-
+Rust library providing a time-based indexing solution for Holochain Zome data.
+Enables time-based indexing of any `AnyLinkableHash` in a link tree structure, i.e. a time-index.
 
 ## Ontology
 
-A datum indexed in a time-index is called a ***Timed Item***, or simply ***item*** in this context.
+A datum indexed in a time-index is called a ***Timed Item***, or simply an ***item*** in this context.
 
 A ***Time Path*** is a *path* composed of a *root anchor* and additional components holding a single `i32`.
 
@@ -16,10 +15,10 @@ A ***Time Path*** is a *path* composed of a *root anchor* and additional compone
 
 ## Design
 
-A time-index starts with a user defined anchor (called the 'root anchor'), and has a granularity of an hour.
-This means a user can define multiple time-indexes to store items in seperate time hiearachies.
+A time-index starts with a user-defined anchor (called the "root anchor"), and has a granularity of an hour.
+This means a user can define multiple time-indexes to store items in separate time hierarchies.
 
-To index an item the user has to call the function:
+To index an item, the user has to call the function:
 ```
 index_item(
     root_tp: TypedPath,
