@@ -50,7 +50,7 @@ pub fn get_latest_time_indexed_links(
       //LinkTypeFilter::single_type(root_tp.link_type.zome_index, root_tp.link_type.zome_type),
       //ThreadsLinkType::Protocols.try_into_filter()?,
       link_tag.clone(),
-    ))?;
+    ), GetStrategy::Network)?;
     debug!("latest_hour_tp items: {}", last_hour_links.len());
     let mut last_hour_pairs = last_hour_links.into_iter()
       .map(|link| (latest_hour_us.clone(), link))
@@ -66,7 +66,7 @@ pub fn get_latest_time_indexed_links(
           prev_hour_tp.path_entry_hash()?,
           LinkTypeFilter::single_dep(root_anchor_tp.link_type.zome_index),
           link_tag.clone(),
-        ))?;
+        ), GetStrategy::Network)?;
         debug!("prev_hour_tp items: {}", prev_hour_links.len());
         let mut prev_hour_pairs = prev_hour_links.into_iter()
                                                  .map(|link| (prev_hour_us.clone(), link))
@@ -209,7 +209,7 @@ fn sweep_and_append(
         child_link.target.clone(),
         time_link_type.try_into_filter()?,
         link_tag.clone(),
-      ))?;
+      ), GetStrategy::Network)?;
       //debug!(" - get_links() of parent {}.{} : {} found", timepath2anchor(&parent_tp), compi32, links.len()/*, child_link.target*/);
       /// Form leaf path
       let mut leaf_tp = parent_tp.clone();
@@ -223,11 +223,9 @@ fn sweep_and_append(
       target_links.append(&mut pairs);
     } else {
       /// Grab children and go deeper
-      let grandchildren = get_links(link_input(
-        child_link.target,
-        LinkTypeFilter::single_type(link_type.zome_index, link_type.zome_type),
-        None,
-      ))?;
+      let grandchildren = get_links(
+         LinkQuery::new(child_link.target, LinkTypeFilter::single_type(link_type.zome_index, link_type.zome_type)),
+         GetStrategy::Network)?;
       //debug!(" - get_links(grandchildren) of parent {}.{} : {} found", timepath2anchor(&parent_tp), compi32, grandchildren.len());
 
       let grandchildren_pairs = grandchildren
