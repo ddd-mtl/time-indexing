@@ -1,3 +1,5 @@
+** REPO ARCHIVED. MOVED TO [ZDK](https://github.com/ddd-mtl/zdk) AND [LIT-HAPP](https://github.com/ddd-mtl/lit-happ) REPOS **
+
 # time-indexing
 
 Rust library providing a time-indexing solution for Holochain Zomes
